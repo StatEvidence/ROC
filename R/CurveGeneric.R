@@ -27,7 +27,7 @@
 #' @examples
 #' 
 
-curve <- function(fit.obj,...) { UseMethod("curve") }
+curve <- function(x,...) { UseMethod("curve") }
 
 curve.default <- function (...) graphics::curve(...)
 
