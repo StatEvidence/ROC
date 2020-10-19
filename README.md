@@ -109,14 +109,14 @@ lines(curve(pcm2.binorm), col="firebrick", lwd=2, lty=2)
 ```
  explain
  
- ```
+ ```r
  cutplot(pcm.1,pcm1.binorm)
  cutplot(pcm.2,pcm2.binorm)
  ```
  
  explain
  
- ```
+ ```r
  ## Using ranks
 
  pcm.1r <- set.roc(rank(log(paca$ca199)), paca$case)
