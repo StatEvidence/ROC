@@ -3,7 +3,7 @@ ROC
 
 `ROC` is a user-friendly R package for displaying and modeling ROC curves. 
 
-Authors
+Author
 -------
 Jeffrey D. Blume  
 Vanderbilt University  
@@ -12,7 +12,6 @@ Vice Chair for Education, Biostatistics
 Director of Graduate Education, Data Science Institute  
 <i class="fas fa-envelope"></i>  j.blume@vanderbilt.edu  
 https://www.statisticalevidence.com/
-https://github.com/StatEvidence
 
 News
 ----
