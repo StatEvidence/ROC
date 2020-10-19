@@ -1,3 +1,7 @@
+#' Print ROC
+#' 
+#' @export
+#'
 print.roc <- function(object) {
 	test=rbind(
 	c(mean(object$data.0), mean(object$data.1)),

@@ -1,3 +1,8 @@
+#' Print AUC
+#' 
+#' @export
+#'
+
 print.auc <- function(object) {
 	cat("\n")
 	print(object$tab, row.names=FALSE, right=F)

@@ -1,3 +1,7 @@
+#' Curve predictobj
+#' 
+#' @export
+#'
 curve.predict <- function(predict.obj, caserow=1, level, acc=0.01, ...) {
 
 ################################################

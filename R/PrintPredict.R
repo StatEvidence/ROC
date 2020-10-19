@@ -1,3 +1,7 @@
+#' Print predict
+#' 
+#' @export
+#'
 print.predict <- function(object) {
     
 	test=rbind(

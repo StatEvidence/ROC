@@ -1,3 +1,7 @@
+#' Print fitobj
+#' 
+#' @export
+#'
 print.fitobj <- function(object) {
     cat("\nCall:\n")
 	print(object$call)

@@ -2,10 +2,11 @@ Package: ROC
 Version: 0.1
 Date: 2020-05-15
 Title: Analysis Tools for ROC curves
-Description: Set of functions for wrangling ROC curves.
+Description: Functions for wrangling ROC curves.
 Author: Jeffrey D Blume <j.blume@vanderbilt.edu>
 Maintainer: Jeffrey D Blume <j.blume@vanderbilt.edu>
 Encoding: UTF-8
 License: MIT + file LICENSE
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 LazyData: true
+Depends: asht

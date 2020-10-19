@@ -1,3 +1,8 @@
+#' Summary Fitobj
+#' 
+#' @export
+#'
+
 summary.fitobj <- function(object, digits=4) {
 	cat("\nCall:\n")
 	print(object$call)

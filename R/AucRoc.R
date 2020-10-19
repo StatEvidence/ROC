@@ -49,7 +49,7 @@
 
 auc.roc <- function(roc.obj, level=0.95, digits=4, ...) {
 
-require(asht) # https://rdrr.io/cran/asht/man/wmwTest.html
+#### requires asht package from https://rdrr.io/cran/asht/man/wmwTest.html
 
 #### Errors / Warnings
 

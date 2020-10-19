@@ -1,3 +1,7 @@
+#' Curve fitobj
+#' 
+#' @export
+#'
 curve.fitobj <- function(fit.obj, level=0.95, acc=0.01, ...) {
 
 ################################################

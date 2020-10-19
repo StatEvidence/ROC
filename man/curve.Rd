@@ -4,7 +4,7 @@
 \alias{curve}
 \title{Generic function for obtaining ROC curves from fitted ROC objects}
 \usage{
-curve(fit.obj, ...)
+curve(x, ...)
 }
 \arguments{
 \item{x}{An ROC fitted object.}
