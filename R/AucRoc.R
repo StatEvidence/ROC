@@ -49,7 +49,7 @@
 
 auc.roc <- function(roc.obj, level=0.95, digits=4, ...) {
 
-#### requires asht package from https://rdrr.io/cran/asht/man/wmwTest.html
+#### Uses asht package from https://rdrr.io/cran/asht/man/wmwTest.html
 
 #### Errors / Warnings
 
@@ -74,7 +74,7 @@ auc.roc <- function(roc.obj, level=0.95, digits=4, ...) {
 
 ##	Mann-Whitney-U based CIs for AUC (Asht package)
 
-	wmw 	<- if (w.min > 0.5) {wmwTest(y.1, y.0, conf.level=level)} else {wmwTest(y.0, y.1, conf.level=level)}
+	wmw 	<- if (w.min > 0.5) {asht::wmwTest(y.1, y.0, conf.level=level)} else {asht::wmwTest(y.0, y.1, conf.level=level)}
 	ci.mwu 	<- wmw$conf.int
 
 	mwu <- c("Empirical", format(round(c(area, ci.mwu[1], ci.mwu[2]), 4), nsmall = 2))
