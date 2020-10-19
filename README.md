@@ -63,9 +63,9 @@ pcm2.smooth <- smooth(pcm.2, adj=1)
 plot(pcm.1, points.col='dodgerblue3', flip.xaxis=TRUE)
 plot(pcm.2, points.col='firebrick', show.plot=FALSE)
 
-legend("right", c("Pa-Ca Marker CA-199","Pa-Ca Marker CA-125"), bty="n",
+legend("right", c("Pa-Ca Marker CA-199","Pa-Ca Marker CA-125"),
 				col=c('dodgerblue3','firebrick'),
-				lty=1, lwd=2, pch=16)
+				lty=1, lwd=2, pch=16, bty="n")
 
 lines(pcm1.smooth, col="dodgerblue3", lwd=2)
 lines(pcm2.smooth, col="firebrick", lwd=2)
@@ -96,9 +96,9 @@ summary(pcm2.binorm)
 auc(pcm2.binorm)
 
 hold <- rbind(cbind(a=pcm1.binorm$a$coef, b=pcm1.binorm$b$coef, 
-					t0=pcm1.binorm$t0$coef, t1=pcm1.binorm$t1$coef, auc=auc(pcm1.binorm)$auc),
+				t0=pcm1.binorm$t0$coef, t1=pcm1.binorm$t1$coef, auc=auc(pcm1.binorm)$auc),
 		      cbind(a=pcm2.binorm$a$coef, b=pcm2.binorm$b$coef, 
-				  	t0=pcm2.binorm$t0$coef, t1=pcm2.binorm$t1$coef, auc=auc(pcm2.binorm)$auc))
+				t0=pcm2.binorm$t0$coef, t1=pcm2.binorm$t1$coef, auc=auc(pcm2.binorm)$auc))
 hold <- rbind(hold,(hold[1,]-hold[2,]))								
 rownames(hold) <- c("M1", "M2", "Diff")
 hold
