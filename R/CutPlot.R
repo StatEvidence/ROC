@@ -242,7 +242,6 @@ cutplot <- function(roc.obj, fit.obj=NULL, at,
 }
 
 
-
 ###
 ##
 #
