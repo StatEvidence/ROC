@@ -239,6 +239,9 @@ cutplot <- function(roc.obj, fit.obj=NULL, at,
 
 	par(mfrow=c(1,1))
 
+	outlist <- list(score=cutrange, sens.emp=eFn.0(cutrange), spec.emp=1-eFn.1(cutrange), sens.fit=Fn.0,spec.fit=1-Fn.1)
+	invisible(outlist)
+
 }
 
 

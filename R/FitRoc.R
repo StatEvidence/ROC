@@ -30,7 +30,7 @@
 #' @param dist.1 Distribution G (e.g. positives or group 1).
 #' @param dpar.1 Parameter list for distribution G
 #' @param parms Values for parameters \code{c(a, b, theta.0, theta.1)}
-#' @param method Optimization algorithm passed to \code{optim}.
+#' @param method Optimization algorithm passed to \code{optim}, options \code{"Nelder-Mead"} or \code{"BFGS"} are good options.
 #'
 #' @details Performs a maxmum likelihood fit of the ROC model.
 #'
@@ -57,7 +57,7 @@ fit.roc <- function(roc.obj, f.1=NULL, f.2=NULL, f.3=NULL, f.4=NULL,
 						model="binormal",   
 						dist.0=NA, dist.1=NA,
 						dpar.0=NA, dpar.1=NA, 
-						start.parms=NA, method="BFGS", ...) {
+						start.parms=NA, method="Nelder-Mead", ...) {
 							
 #### Errors / Warnings
 
