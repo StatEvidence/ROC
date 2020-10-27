@@ -57,7 +57,7 @@ fit.roc <- function(roc.obj, f.1=NULL, f.2=NULL, f.3=NULL, f.4=NULL,
 						model="binormal",   
 						dist.0=NA, dist.1=NA,
 						dpar.0=NA, dpar.1=NA, 
-						start.parms=NA, method="BFGS", maxit, ...) {
+						start.parms=NA, method="BFGS", maxit=NULL, ...) {
 							
 #### Errors / Warnings
 
