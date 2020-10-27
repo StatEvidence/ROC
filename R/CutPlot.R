@@ -44,7 +44,7 @@ cutplot <- function(roc.obj, fit.obj=NULL, at,
 						cols = c("dodgerblue3", "chocolate3"),
 						lwds = c(2.5, 2.5), 
 						show.legend=TRUE, show.auc=TRUE,
-						xlab="Score", plot=TRUE...){
+						xlab="Score", plot=TRUE, ...){
 
 ##########
 ## Binormal model curves change to logistic based on model
