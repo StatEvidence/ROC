@@ -22,10 +22,11 @@
 #' @param xlab Lable for x-axis.
 #' @param blty Line type for smoothed densities when plotted with fitted densities (solid line). 
 #' @param blwd Line width for smoothed densities when plotted with fitted densities (solid line).
+#' @param plot Flag to turn plot off
 #'
 #' @details Details?
 #'
-#' @return 
+#' @return A list of sen/spec tradeoff that is plotted
 #' 
 #' @author Jeffrey D Blume, \email{j.blume@@vanderbilt.edu}
 #' @references Add references here
@@ -43,7 +44,7 @@ cutplot <- function(roc.obj, fit.obj=NULL, at,
 						cols = c("dodgerblue3", "chocolate3"),
 						lwds = c(2.5, 2.5), 
 						show.legend=TRUE, show.auc=TRUE,
-						xlab="Score", ...){
+						xlab="Score", plot=TRUE...){
 
 ##########
 ## Binormal model curves change to logistic based on model
@@ -173,6 +174,8 @@ cutplot <- function(roc.obj, fit.obj=NULL, at,
 	
 #### Plot cutpoint distribution as CDFs and pdfs 
 
+	if (plot==TRUE) {
+
 	par(mfrow=c(2,1),
 		mar=c(0.1, 0.75, 0.75, 0.5), 
 		oma = c(4, 4, 0.2, 0.2)+0.1 
@@ -237,12 +240,14 @@ cutplot <- function(roc.obj, fit.obj=NULL, at,
 
 		}
 
-	par(mfrow=c(1,1))
+	# par(mfrow=c(1,1))
+	}  # Plotting conditional end
 
 	outlist <- list(
 		graph= data.frame(score=cutrange, 
-					sens.emp=eFn.0(cutrange), spec.emp=1-eFn.1(cutrange), 
-					sens.fit=Fn.0, spec.fit=1-Fn.1), auc.emp=auc.emp, auc.fit=auc.fit)
+					spec.emp=eFn.0(cutrange), sens.emp=1-eFn.1(cutrange), 
+					spec.fit=Fn.0, sens.fit=1-Fn.1), 
+				auc.emp=auc.emp, auc.fit=auc.fit)
 	invisible(outlist)
 
 }
