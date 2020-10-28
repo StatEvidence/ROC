@@ -112,9 +112,11 @@ Collect the ROC parameter estimates for comparions across biomarkers.
 
 ``` r 
 hold <- rbind(cbind(a=pcm1.binorm$a$coef, b=pcm1.binorm$b$coef, 
-					t0=pcm1.binorm$t0$coef, t1=pcm1.binorm$t1$coef, auc=auc(pcm1.binorm)$auc),
+					t0=pcm1.binorm$t0$coef, t1=pcm1.binorm$t1$coef, 
+					auc=auc(pcm1.binorm)$auc),
 		      cbind(a=pcm2.binorm$a$coef, b=pcm2.binorm$b$coef, 
-				  	t0=pcm2.binorm$t0$coef, t1=pcm2.binorm$t1$coef, auc=auc(pcm2.binorm)$auc))
+				  	t0=pcm2.binorm$t0$coef, t1=pcm2.binorm$t1$coef, 
+					auc=auc(pcm2.binorm)$auc))
 hold <- rbind(hold,(hold[2,]-hold[1,]))								
 rownames(hold) <- c("M1", "M2", "Diff")
 hold
@@ -129,7 +131,8 @@ To do this, we combine the data into one dataframe using an indicator variables.
 ```r
 y=data.frame(score =c( log(paca$ca199), log(paca$ca125)), 
   			 status=c( paca$case,paca$case), 
-  			 marker=c( rep("one",length(paca$ca199)), rep("two",length(paca$ca125))) )
+  			 marker=c( rep("one",length(paca$ca199)), 
+			 		rep("two",length(paca$ca125))) )
 
 pcc   <- set.roc(y$score, y$status, data.frame("marker"=y$marker))
 ```
@@ -197,7 +200,8 @@ Or switch it up and try a bilogistic model.
 
 ```r
 pcc.bilog <- fit(pcc, f.1 = a ~ marker, f.2 = b ~ marker,
-					f.3 = t0 ~ marker, f.4 = t1 ~ marker, model="bilogistic")
+					f.3 = t0 ~ marker, 
+					f.4 = t1 ~ marker, model="bilogistic")
 summary(pcc.binorm)
 
 at = data.frame('marker'=factor(c('one', 'two'), levels=c('one','two')))
