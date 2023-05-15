@@ -7,9 +7,9 @@ The package contains tools for graphing, modeling and analyzing ROC data.
 Author
 -------
 Jeffrey D. Blume  
-Vanderbilt University  
-Professor of Biostatistics, Biomedical Informatics and Biochemistry  
-<i class="fas fa-envelope"></i>  j.blume@vanderbilt.edu  
+School of Data Science
+University of Virginia
+<i class="fas fa-envelope"></i>  blume@virginia.edu 
 https://www.statisticalevidence.com/
 
 News
