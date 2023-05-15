@@ -1,0 +1,29 @@
+
+## https://kbroman.org/pkg_primer/pages/docs.html
+
+## Package name: ROC or ROCtools
+
+# setwd("/Users/Jeffrey/Dropbox/Github/ROC")
+
+library(devtools)
+
+build()
+
+install()
+
+document()
+
+library(ROC)
+
+?fit.roc
+
+
+## check()
+
+## remove.packages("ROC")
+
+## devtools::install_github("statevidence/ROC")
+
+###
+##
+#
