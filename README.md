@@ -8,7 +8,7 @@ Author
 -------
 Jeffrey D. Blume  
 School of Data Science
-University of Virginia
+University of Virginia (right?)
 <i class="fas fa-envelope"></i>  blume@virginia.edu 
 https://www.statisticalevidence.com/
 
