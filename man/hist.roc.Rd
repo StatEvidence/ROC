@@ -43,9 +43,6 @@
 
 \item{blwd}{Line width for smoothed densities when plotted with fitted densities (solid line).}
 }
-\value{
-
-}
 \description{
 This function plots histograms of the ROC and associated smooth or fitted densities.
 }

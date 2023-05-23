@@ -26,9 +26,6 @@ This function compute the model matrix for the 4 ROC formulas and computes rank 
 \details{
 Formulas are specific, can not be \code{NULL} nor \code{NA}.
 }
-\examples{
-
-}
 \references{
 Add references here
 }

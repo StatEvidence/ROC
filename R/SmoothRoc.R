@@ -83,7 +83,7 @@ smooth.roc <- function(roc.obj, adj=0.8, acc=0.1,...) {
 	s.0 <- 1-rowMeans(mat.0)
 	s.1 <- 1-rowMeans(mat.1)
 
-	outlist <- list("x"=s.0, "y"=s.1, "density.0"=kdens.0, "density.1"=kdens.1)
+	outlist <- list("x"=s.0, "y"=s.1, "density.0"=kdens.0, "density.1"=kdens.1, "cutpoint"=z)
 
 class(outlist) <- "curve"
 return(outlist) 

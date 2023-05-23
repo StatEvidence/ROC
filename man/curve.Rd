@@ -9,17 +9,8 @@ curve(x, ...)
 \arguments{
 \item{x}{An ROC fitted object.}
 }
-\value{
-
-}
 \description{
-
-}
-\details{
-
-}
-\examples{
-
+Generic function for obtaining ROC curves from fitted ROC objects
 }
 \references{
 Add references here

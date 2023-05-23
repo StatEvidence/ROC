@@ -33,9 +33,6 @@ This function computes the ROC intercept (a) and slop (b) for the given covarait
 \details{
 Computes a contrast based on the a maxmum likelihood fit of the ROC model.
 }
-\examples{
-
-}
 \references{
 Add references here
 }

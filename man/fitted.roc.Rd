@@ -22,9 +22,6 @@ This function will compute the fitted values for an ROC model.
 \details{
 Computes fitted values, fitted variance, and MSE for ROC model.
 }
-\examples{
-
-}
 \references{
 Add references here
 }

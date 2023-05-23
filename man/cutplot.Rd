@@ -10,11 +10,13 @@ cutplot(
   at,
   adj = 0.5,
   ref = TRUE,
+  smooth = FALSE,
   cols = c("dodgerblue3", "chocolate3"),
   lwds = c(2.5, 2.5),
   show.legend = TRUE,
   show.auc = TRUE,
   xlab = "Score",
+  plot = TRUE,
   ...
 )
 }
@@ -26,6 +28,8 @@ cutplot(
 \item{show.legend}{Flag to display default legend. Default is \code{TRUE}.}
 
 \item{xlab}{Lable for x-axis.}
+
+\item{plot}{Flag to turn plot off}
 
 \item{curve.obj}{Curve object. For example, from \code{smooth} function.}
 
@@ -40,19 +44,17 @@ cutplot(
 \item{blty}{Line type for smoothed densities when plotted with fitted densities (solid line).}
 
 \item{blwd}{Line width for smoothed densities when plotted with fitted densities (solid line).}
+
+\item{empirical}{Flag to replace smoothed sens/spec reference with empirical estimates}
 }
 \value{
-
+A list of sen/spec tradeoff that is plotted
 }
 \description{
 This function plots histograms of the ROC and associated smooth or fitted densities.
 }
 \details{
 Details?
-}
-\examples{
-
-
 }
 \references{
 Add references here

@@ -9,17 +9,8 @@ smooth(roc.obj, ...)
 \arguments{
 \item{x}{An ROC object.}
 }
-\value{
-
-}
 \description{
-
-}
-\details{
-
-}
-\examples{
-
+Generic function for smoothing ROC curves
 }
 \references{
 Add references here

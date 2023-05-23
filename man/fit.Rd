@@ -9,17 +9,8 @@ fit(roc.obj, ...)
 \arguments{
 \item{x}{An ROC object.}
 }
-\value{
-
-}
 \description{
-
-}
-\details{
-
-}
-\examples{
-
+Generic function for ROC model fitting
 }
 \references{
 Add references here

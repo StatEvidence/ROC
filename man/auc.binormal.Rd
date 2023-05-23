@@ -43,9 +43,6 @@ Comptues the analytical estimate of the AUC for a binormal model, along with a d
 \details{
 Performs a maxmum likelihood fit of the ROC model.
 }
-\examples{
-
-}
 \references{
 Add references here
 }

@@ -9,17 +9,8 @@ auc(x, ...)
 \arguments{
 \item{x}{An ROC or Curve object.}
 }
-\value{
-
-}
 \description{
-
-}
-\details{
-
-}
-\examples{
-
+Generic function for AUC computations
 }
 \references{
 Add references here

@@ -23,6 +23,7 @@
 #' @param blty Line type for smoothed densities when plotted with fitted densities (solid line). 
 #' @param blwd Line width for smoothed densities when plotted with fitted densities (solid line).
 #' @param plot Flag to turn plot off
+#' @param empirical Flag to replace smoothed sens/spec reference with empirical estimates
 #'
 #' @details Details?
 #'
@@ -40,7 +41,7 @@
 #'
 
 cutplot <- function(roc.obj, fit.obj=NULL, at,
-						adj=0.5, ref=TRUE,
+						adj=0.5, ref=TRUE, smooth=FALSE,
 						cols = c("dodgerblue3", "chocolate3"),
 						lwds = c(2.5, 2.5), 
 						show.legend=TRUE, show.auc=TRUE,
@@ -62,7 +63,6 @@ cutplot <- function(roc.obj, fit.obj=NULL, at,
 		if ( !is(fit.obj, "fitobj") ) { stop("Object not FITOBJ class.") }
 
 	 	}
-
 	
 #### Identify data for each group
 
@@ -83,6 +83,7 @@ cutplot <- function(roc.obj, fit.obj=NULL, at,
 
 	sroc <- smooth.roc(roc.obj, adj=adj)
 
+	## Empirical CDFs not smoothed CDFs
 	eFn.0 <- ecdf(y.0)
 	eFn.1 <- ecdf(y.1)
 	
@@ -193,9 +194,14 @@ cutplot <- function(roc.obj, fit.obj=NULL, at,
 				
 	grid (NULL, NULL, lty = 3, col = "grey81") 	
 		
-	if ( ref==TRUE ) { 			
+	if ( ref==TRUE&smooth==FALSE ) { 			
 		lines(sroc$density.0, lty=2, lwd=1.2, col="black") 
 		lines(sroc$density.1, lty=2, lwd=1.2, col="black")
+		}
+		
+	if ( ref==TRUE&smooth==TRUE ) { 			
+		lines(sroc$density.0, lty=2, lwd=lwds[1], col=cols[1]) 
+		lines(sroc$density.1, lty=2, lwd=lwds[2], col=cols[2])
 		}
 
 	if ( !missing(fit.obj) ) { 	
@@ -204,7 +210,7 @@ cutplot <- function(roc.obj, fit.obj=NULL, at,
 		}
 		
 		
-	if (show.auc==TRUE) {
+	if ( show.auc==TRUE ) {
 
 		legend("topright", c(	paste("AUC emp:", round(auc.emp,4)),
 								paste("AUC fit    :", round(auc.fit,4)) ), 
@@ -219,6 +225,10 @@ cutplot <- function(roc.obj, fit.obj=NULL, at,
 
 	grid (NULL, NULL, lty = 3, col = "grey81") 
 	
+	## Reference lines for sens/spec based on smoothed densities.
+	
+	
+	## Change reference lines to empirical sens/spec
 	if ( ref==TRUE ) { 			
 		lines(cutrange, eFn.0(cutrange),   lty=2, lwd=1.2, col="black")
 		lines(cutrange, 1-eFn.1(cutrange), lty=2, lwd=1.2, col="black")
@@ -229,10 +239,23 @@ cutplot <- function(roc.obj, fit.obj=NULL, at,
 		lines(cutrange, 1-Fn.1, lwd=lwds[2], col=cols[2])
 		}
 		
+	if ( smooth==TRUE ) { 			
+		lines(sroc$cutpoint, 1-sroc$x, lty=1, lwd=lwds[1], col=cols[1])
+		lines(sroc$cutpoint, sroc$y, lty=1, lwd=lwds[2], col=cols[2])
+		
+		## workaround is in different dimension for cutpoint
+		Fn.0 <- NULL
+		Fn.1 <- NULL
+
+		eFn.0 <- NULL
+		eFn.1 <- NULL
+		
+		}	
+		
 	mtext(side=2, line=3, "Sensitivity / Specificity")	
 	mtext(side=1, line=2.15, xlab)
 
-	if (show.legend==TRUE & !missing(fit.obj)) {
+	if (show.legend==TRUE) {
  	
 		legend("right", c("Group 0", "(Specificity)", "Group 1", "(Sensitivity)"), bty="n",
 		 	lty=c(1, NA, 1, NA), lwd=c(3, NA, 3, NA) , col = c(cols[1], NA, cols[2], NA), 

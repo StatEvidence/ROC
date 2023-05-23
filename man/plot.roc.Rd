@@ -48,9 +48,6 @@
 
 \item{ci.color}{set color of CI region. Default is \code{'aliceblue'}.}
 }
-\value{
-
-}
 \description{
 This function plots empirical ROC points and their pointwise confidence region.
 }

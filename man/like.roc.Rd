@@ -42,9 +42,6 @@ This function will compute the likelihood for a given ROC model and data. Used f
 \details{
 Computes log likelihood for ROC model.
 }
-\examples{
-
-}
 \references{
 Add references here
 }

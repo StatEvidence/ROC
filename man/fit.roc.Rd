@@ -17,6 +17,7 @@
   dpar.1 = NA,
   start.parms = NA,
   method = "BFGS",
+  maxit = 500,
   ...
 )
 }
@@ -41,7 +42,7 @@
 
 \item{dpar.1}{Parameter list for distribution G}
 
-\item{method}{Optimization algorithm passed to \code{optim}.}
+\item{method}{Optimization algorithm passed to \code{optim}, options \code{"Nelder-Mead"} or \code{"BFGS"} are good options.}
 
 \item{parms}{Values for parameters \code{c(a, b, theta.0, theta.1)}}
 }
@@ -60,9 +61,6 @@ This function will maximize the likelihood function for ROC parameters. Used to 
 }
 \details{
 Performs a maxmum likelihood fit of the ROC model.
-}
-\examples{
-
 }
 \references{
 Add references here
