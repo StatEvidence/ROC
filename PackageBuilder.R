@@ -17,7 +17,7 @@ library(ROC)
 
 ?fit.roc
 
-
+wd()
 ## check()
 
 ## remove.packages("ROC")
