@@ -23,6 +23,8 @@ cutplot(
 \arguments{
 \item{roc.obj}{ROC object from \code{set.roc} function.}
 
+\item{ref}{Flag to replace smoothed sens/spec reference with empirical estimates}
+
 \item{lwds}{Density line widths for group 0 and group 1. Default is \code{c(3,3)}.}
 
 \item{show.legend}{Flag to display default legend. Default is \code{TRUE}.}
@@ -44,8 +46,6 @@ cutplot(
 \item{blty}{Line type for smoothed densities when plotted with fitted densities (solid line).}
 
 \item{blwd}{Line width for smoothed densities when plotted with fitted densities (solid line).}
-
-\item{empirical}{Flag to replace smoothed sens/spec reference with empirical estimates}
 }
 \value{
 A list of sen/spec tradeoff that is plotted
