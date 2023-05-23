@@ -25,7 +25,7 @@ d 	 <- c(rep(0,n.0), rep(1,n.1))
 age  <- rnorm(n, mean=35, sd=8)
 age  <- age-mean(age)
 over <- c(rep(0, ceiling(n/2)), rep(1, n-ceiling(n/2)))	
-size <- sample(c("small", "medium", "big"), n, replace=TRUE)
+size <- factor(sample(c("small", "medium", "big"), n, replace=TRUE))
 
 ## Model
 mu 	<- ( 0 + 0.05*age + 0.25*(size=="medium") + 0.5*(size=="big") + 
@@ -95,7 +95,7 @@ summary(binorm.fit)
 
 
 ## Fitting problems... (Add over to see)
-mymod = fit.roc(roc.obj = myroc, f.1 = a ~ age + size, 
+mymod = fit(roc.obj = myroc, f.1 = a ~ age + size, 
 				f.2 = t0 ~ age + size, f.3 = b ~ 1, 
 				f.4 = t1 ~ 1)
 				
@@ -109,10 +109,12 @@ auc(mymod)
 spacing <- seq(floor(range(age)[1]), ceiling(range(age)[2]), 1)
 at <- NULL
 
+## Is there an easier way than passing a factor in the loop here?
+
 for (i in 1:length(spacing)) {
 
 at <- rbind( at,
-		data.frame(age=spacing[i],  size='small', over=0)	
+		data.frame(age=spacing[i], size=factor('small', levels=c('small','medium','large')), over=0)	
 			)
 	}
 
@@ -161,12 +163,13 @@ legend( 'bottomright', c("Big", "Medium", "Small","Over=1","Over=0"),
 ########################################################
 ## Showing the influence of cutpoints
 
+## Still throwing an error for null passed ECDF or estimated CDF
 cutplot(myroc)
 
 try = fit.roc(roc.obj = myroc)
 cutplot(myroc, try)
 
-cutplot(myroc, mymod, at=data.frame(age=15, size= 'large', over= 1))
+cutplot(myroc, mymod, at=data.frame(age=15, size=factor('large', levels=c('small','medium','large')), over= 1))
 
 
 ########################################################
