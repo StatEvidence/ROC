@@ -131,8 +131,8 @@ To do this, we combine the data into one dataframe using an indicator variables.
 ```r
 y=data.frame(score =c( log(paca$ca199), log(paca$ca125)), 
   			 status=c( paca$case,paca$case), 
-  			 marker=c( rep("one",length(paca$ca199)), 
-			 		rep("two",length(paca$ca125))) )
+  			 marker=factor(c( rep("one",length(paca$ca199)), 
+			 		rep("two",length(paca$ca125)))) )
 
 pcc   <- set.roc(y$score, y$status, data.frame("marker"=y$marker))
 ```
@@ -206,7 +206,8 @@ summary(pcc.binorm)
 
 at = data.frame('marker'=factor(c('one', 'two'), levels=c('one','two')))
 keep <- predict(pcc.bilog, at, level=0.95)
-					
+
+par(mfrow=c(1,1))					
 plot(pcm.1, points.col='dodgerblue3', flip.xaxis=TRUE)
 plot(pcm.2, points.col='firebrick', show.plot=FALSE)
 

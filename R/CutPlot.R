@@ -23,7 +23,7 @@
 #' @param blty Line type for smoothed densities when plotted with fitted densities (solid line). 
 #' @param blwd Line width for smoothed densities when plotted with fitted densities (solid line).
 #' @param plot Flag to turn plot off
-#' @param empirical Flag to replace smoothed sens/spec reference with empirical estimates
+#' @param ref Flag to replace smoothed sens/spec reference with empirical estimates
 #'
 #' @details Details?
 #'
@@ -243,12 +243,17 @@ cutplot <- function(roc.obj, fit.obj=NULL, at,
 		lines(sroc$cutpoint, 1-sroc$x, lty=1, lwd=lwds[1], col=cols[1])
 		lines(sroc$cutpoint, sroc$y, lty=1, lwd=lwds[2], col=cols[2])
 		
-		## workaround is in different dimension for cutpoint
-		Fn.0 <- NULL
-		Fn.1 <- NULL
+		## ERROR is here; Densities below set to NULL, but still output in data.frame at end!
+		## Need to output smooth ROC sensitivites, specificities.
+		## sroc in cutpoint...should be in cutrange
+		## Smooth ROC over the min(y.0,y.1) to max(y.0,y.1) range? See above for cutrange; Now seperate...
+		
+		## workaround is in different dimension for cutpoint (change from <- NULL in all 4 cases)
+		Fn.0 <- approxfun(sroc$density.0)(cutrange)
+		Fn.1 <- approxfun(sroc$density.1)(cutrange)
 
-		eFn.0 <- NULL
-		eFn.1 <- NULL
+		#eFn.0 <- NULL
+		#eFn.1 <- NULL
 		
 		}	
 		

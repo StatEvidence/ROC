@@ -1,7 +1,12 @@
 ################################################
 ## Tour of the ROC Package
 ################################################
+##### libraries
+library(devtools)
 
+#### Load package from Github
+devtools::install_github("statevidence/ROC")
+library(ROC)
 
 #################################
 #### Generate fake ROC data
